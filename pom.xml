@@ -74,7 +74,7 @@
 
 	<distributionManagement>
 		<repository>
-			<id>github-empresa</id>
+			<id>github</id>
 			<name>GitHub Packages</name>
 			<url>https://maven.pkg.github.com/BonnaroTech/tools-lib</url>
 		</repository>
