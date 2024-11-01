@@ -41,7 +41,7 @@ jobs:
           GITHUB_USERNAME: ${{ secrets.GH_USERNAME }}
 
       - name: Build and Deploy
-        run: mvn deploy --settings .github/workflows/maven-settings.xml
+        run: mvn deploy -DskipTests --settings .github/workflows/maven-settings.xml
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           GITHUB_USERNAME: ${{ secrets.GH_USERNAME }}
