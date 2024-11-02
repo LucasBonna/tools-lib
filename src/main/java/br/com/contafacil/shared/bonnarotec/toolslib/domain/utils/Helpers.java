@@ -7,7 +7,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Component;
 
-import org.springframework.http.HttpHeaders;
+import java.util.Map;
 
 @Component
 public class Helpers {
@@ -18,15 +18,21 @@ public class Helpers {
         this.objectMapper = objectMapper;
     }
 
-    public ClientDTO getClient(HttpHeaders headers) throws JsonMappingException, JsonProcessingException {
-        @SuppressWarnings("null")
-        String clientJSON = headers.get("X-Client").get(0);
-        return objectMapper.readValue(clientJSON, ClientDTO.class);
+    public ClientDTO getClient(String headerValue) throws JsonMappingException, JsonProcessingException {
+        if (headerValue == null) {
+            throw new RuntimeException("X-Client header not found");
+        }
+        return objectMapper.readValue(headerValue, ClientDTO.class);
     }
 
-    public UserDTO getUser(HttpHeaders headers) throws JsonMappingException, JsonProcessingException {
-        @SuppressWarnings("null")
-        String userJSON = headers.get("X-User").get(0);
-        return objectMapper.readValue(userJSON, UserDTO.class);
+    public UserDTO getUser(String headerValue) throws JsonMappingException, JsonProcessingException {
+        if (headerValue == null) {
+            throw new RuntimeException("X-User header not found");
+        }
+        return objectMapper.readValue(headerValue, UserDTO.class);
+    }
+
+    public String getHeaderValue(Map<String, String> headers, String headerName) {
+        return headers.get(headerName);
     }
 }
