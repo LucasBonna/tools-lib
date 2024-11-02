@@ -26,6 +26,9 @@ public class ClientEntity {
     @Column(unique = true)
     private String name;
 
+    @Enumerated(EnumType.STRING)
+    private ClientRole role;
+
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JsonIgnore
     private Set<UserEntity> users;

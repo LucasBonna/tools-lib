@@ -15,4 +15,6 @@ public class ClientDTO {
 
     private String name;
 
+    private ClientRole role;
+
 }
