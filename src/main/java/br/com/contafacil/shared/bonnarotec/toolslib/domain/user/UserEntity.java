@@ -1,7 +1,6 @@
 package br.com.contafacil.shared.bonnarotec.toolslib.domain.user;
 
 import br.com.contafacil.shared.bonnarotec.toolslib.domain.client.ClientEntity;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
