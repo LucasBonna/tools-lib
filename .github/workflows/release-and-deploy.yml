@@ -32,17 +32,16 @@ jobs:
         run: |
           echo "New release version: ${{ steps.semantic.outputs.new_release_version }}"
 
-      - name: Build and Deploy
-        run: mvn deploy --settings .github/workflows/maven-settings.xml
+      - name: Update pom.xml version
+        run: |
+          mvn versions:set -DnewVersion=${{ steps.semantic.outputs.new_release_version }} -DgenerateBackupPoms=false
+          mvn versions:commit
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           GITHUB_USERNAME: ${{ secrets.GH_USERNAME }}
 
-      - name: Update pom.xml version
-        if: success()
-        run: |
-          mvn versions:set -DnewVersion=${{ steps.semantic.outputs.new_release_version }} -DgenerateBackupPoms=false
-          mvn versions:commit
+      - name: Build and Deploy
+        run: mvn deploy -DskipTests --settings .github/workflows/maven-settings.xml
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           GITHUB_USERNAME: ${{ secrets.GH_USERNAME }}
