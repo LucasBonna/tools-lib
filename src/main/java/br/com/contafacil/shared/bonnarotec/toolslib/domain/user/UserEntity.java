@@ -24,6 +24,8 @@ public class UserEntity {
     @Column(unique = true)
     private String username;
 
+    private String password;
+
     @Column(unique = true)
     private String apiKey;
 
