@@ -1,11 +1,11 @@
 package br.com.contafacil.shared.bonnarotec.toolslib;
 
-import org.springframework.boot.SpringApplication;
 
 public class ToolsLibApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ToolsLibApplication.class, args);
+	public static void main( String[] args )
+	{
+		System.out.println( "Hello World!" );
 	}
 
 }
