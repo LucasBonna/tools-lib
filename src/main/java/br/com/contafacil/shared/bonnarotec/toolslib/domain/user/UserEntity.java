@@ -11,6 +11,15 @@ import lombok.Setter;
 import java.util.UUID;
 
 @Entity
+@Table(
+        name = "users",
+        uniqueConstraints = {
+                @UniqueConstraint(columnNames = {
+                        "client_id",
+                        "username"
+                })
+        }
+)
 @Getter
 @Setter
 @NoArgsConstructor
