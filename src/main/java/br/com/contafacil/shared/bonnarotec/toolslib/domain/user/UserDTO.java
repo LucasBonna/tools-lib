@@ -20,6 +20,8 @@ public class UserDTO {
 
     private String apiKey;
 
+    private UserRole role;
+
     private ClientEntity client;
 
 }
