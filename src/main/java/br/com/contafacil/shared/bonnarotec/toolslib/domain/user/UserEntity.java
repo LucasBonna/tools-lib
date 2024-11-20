@@ -40,6 +40,9 @@ public class UserEntity {
     @Column(unique = true)
     private String apiKey;
 
+    @Enumerated(EnumType.STRING)
+    private UserRole role;
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "client_id")
     @JsonIgnoreProperties("users")
