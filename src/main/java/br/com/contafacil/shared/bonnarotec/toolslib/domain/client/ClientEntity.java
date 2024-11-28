@@ -30,6 +30,9 @@ public class ClientEntity {
     @Column(unique = true)
     private String name;
 
+    @Column(unique = true)
+    private String cnpj;
+
     @Enumerated(EnumType.STRING)
     private ClientRole role;
 
