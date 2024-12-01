@@ -1,14 +1,14 @@
 package br.com.contafacil.shared.bonnarotec.toolslib.domain.services;
 
-public enum ServicesEnum {
+public enum ServicesNameEnum {
     REGISTRY("cfregistry"),
     STORAGE("cfstorage"),
     GATEWAY("cfgateway"),
     EMISSION("cfemission");
 
-    private final String url;
+    private final String name;
 
-    ServicesEnum(String url) {
-        this.url = url;
+    ServicesNameEnum(String name) {
+        this.name = name;
     }
 }
