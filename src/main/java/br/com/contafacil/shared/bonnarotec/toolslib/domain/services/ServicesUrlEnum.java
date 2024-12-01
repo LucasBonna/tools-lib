@@ -1,10 +1,9 @@
 package br.com.contafacil.shared.bonnarotec.toolslib.domain.services;
 
 public enum ServicesUrlEnum {
-    REGISTRY("http://cfregistry:8004"),
-    STORAGE("http://cfstorage:8002"),
-    GATEWAY("http://cfgateway:8000"),
-    EMISSION("http://cfemission:8001");
+    REGISTRY("http://cfregistry:8004/cfregistry"),
+    STORAGE("http://cfstorage:8002/cfstorage"),
+    EMISSION("http://cfemission:8001/cfemission");
 
     private final String url;
 
